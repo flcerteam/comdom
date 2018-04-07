@@ -88,4 +88,4 @@
       </nav>
     </div> <!-- .container -->
   </div> <!-- .header-bottom -->
-</div>
+</div> <!-- #header -->
