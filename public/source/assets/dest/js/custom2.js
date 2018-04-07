@@ -13,9 +13,46 @@
 				 $(this).parents('li').addClass('parent-active');
             }
         });
-    }); 
-	 
-				
+    });
+  $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('value')
+          }
+  });
+  $("body").on("click", ".sp1", (function(e){
+      e.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "/add-to-cart",
+        data: {'id':e.currentTarget.childNodes[1].value},
+        success: function(data){
+              console.log(data);
+              //return false;
+              $('#tongso').html(data.cart["totalQty"]);
+              $('.list-items').html('');
+              $.each(data.cart["items"],function( key, value ){
+                $('.list-items').append('\
+                <div class="cart-item">\
+                  <div class="media">\
+                    <a class="pull-left" href="#"><img src="source/image/product/'+value.item["image"]+'" alt="" width="30px" height="30px"></a>\
+                    <div class="media-body">\
+                      <span class="cart-item-title">'+value.item["name"]+'</span>\
+                      <span class="cart-item-amount">'+value.qty+' * <span>'+value.item["unit_price"]+'</span></span>\
+                    </div>\
+                  </div>\
+                </div>')
+              })
+              $('.cart-total-value').html(data.cart["totalPrice"]);
+              console.log(data.cart["totalPrice"]);
+
+        },
+        error:function(data){
+          console.log(data);
+        }
+      });
+    }));
+
+
 			// NUMBERS COUNTER START
                 $('.numbers').data('countToOptions', {
                     formatter: function(value, options) {
@@ -31,7 +68,7 @@
                     options = $.extend({}, options || {}, $this.data('countToOptions') || {});
                     $this.countTo(options);
                 } // NUMBERS COUNTER END
-		
+
 
 				var tpj=jQuery;
 				tpj.noConflict();
@@ -97,10 +134,10 @@
 
 
 
-			
-			
 
-try {		
+
+
+try {
 		if ($(".animated")[0]) {
             $('.animated').css('opacity', '0');
 			}
@@ -118,7 +155,7 @@ try {
 	} catch(err) {
 
 		}
-		
+
 var wow = new WOW(
   {
     boxClass:     'wow',      // animated element css class (default is wow)
@@ -152,12 +189,10 @@ wow.init();
         jQuery(this).addClass('icon-angle-left');
       }
     });
-	
+
 
 	});
 
-	
+
 
             /* ]]> */
-
-

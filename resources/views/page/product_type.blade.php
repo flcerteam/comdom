@@ -47,7 +47,9 @@
                     </p>
                   </div>
                   <div class="single-item-caption">
-                    <a class="add-to-cart pull-left" href="{{route('themgiohang',$sptl->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                    <a class="add-to-cart pull-left sp1" href="">
+                      <input type="hidden" value="{{$sptl->id}}" name="product_id"/>
+                      <i class="fa fa-shopping-cart"></i></a>
                     <a class="beta-btn primary" href="{{route('product-detail',$sptl->id)}}">Details <i class="fa fa-chevron-right"></i></a>
                     <div class="clearfix"></div>
                   </div>
@@ -79,7 +81,9 @@
                     </p>
                   </div>
                   <div class="single-item-caption">
-                    <a class="add-to-cart pull-left" href="{{route('themgiohang',$ano->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                    <a class="add-to-cart pull-left sp1" href="">
+                      <input type="hidden" value="{{$ano->id}}" name="product_id"/>
+                      <i class="fa fa-shopping-cart"></i></a>
                     <a class="beta-btn primary" href="{{route('product-detail',$ano->id)}}">Details <i class="fa fa-chevron-right"></i></a>
                     <div class="clearfix"></div>
                   </div>

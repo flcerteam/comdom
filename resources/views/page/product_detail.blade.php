@@ -65,7 +65,9 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
-              <a class="add-to-cart" href="{{route('themgiohang',$detail->id)}}"><i class="fa fa-shopping-cart"></i></a>
+              <a class="add-to-cart pull-left sp1" href="">
+                <input type="hidden" value="{{$detail->id}}" name="product_id"/>
+                <i class="fa fa-shopping-cart"></i></a>
               <div class="clearfix"></div>
             </div>
           </div>

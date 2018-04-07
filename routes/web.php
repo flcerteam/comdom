@@ -35,7 +35,14 @@ Route::get('gioi-thieu',[
   'as'=>'about',
   'uses'=>'PageController@getAbout'
 ]);
-Route::get('add-to-cart/{id}',[
-  'as'=>'themgiohang',
-  'uses'=>'PageController@getAddToCart'
-]);
+// Route::get('add-to-cart/{id}',[
+//   'as'=>'themgiohang',
+//   'uses'=>'PageController@getAddToCart'
+// ]);
+Route::post('add-to-cart','PageController@getAddToCart');
+Route::post('dmmm','PageController@google');
+//Route::get('add-to-cart','PageController@getGioHang');
+Route::get('del-cache',function(){
+  Session::flush();
+  echo 'dm dai ca';
+});

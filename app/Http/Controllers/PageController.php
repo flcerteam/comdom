@@ -6,7 +6,7 @@ use App\Product;
 use App\Cart;
 use Session;
 use Illuminate\Http\Request;
-
+use View;
 class PageController extends Controller
 {
     public function getIndex(){
@@ -35,12 +35,26 @@ class PageController extends Controller
     public function getAbout(){
         return view('page.about');
     }
-    public function getAddToCart(Request $req,$id){
-        $product = Product::find($id);
+    public function getAddToCart(Request $req){
+        //return response()->json(['success','true']);
+        $input = $req->all();
+        //  dd($input);
+        $product = Product::find($input['id']);
         $oldCart = Session('cart')?Session::get('cart'):null;
         $cart = new Cart($oldCart);
-        $cart->add($product,$id);
-        $req->session()->put('cart',$cart);
-        return redirect()->back();
+        //dd($cart);
+        //dd($product);
+        $cart->add($product,$input['id']);
+        //dd($cart);
+        Session::put('cart',$cart);
+        //dd(Session::get('cart'));
+        return response()->json(['cart'=>$cart]);
     }
+    public function google(Request $request){
+      return response()->json(['success','true']);
+    }
+    // public function getGioHang(){
+    //   //$view = View::make('')
+    //   return view('giohang');
+    // }
 }

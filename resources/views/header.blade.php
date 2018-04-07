@@ -31,27 +31,28 @@
           </form>
         </div>
 
-        <div class="beta-comp">
+        <div class="beta-comp giohang">
           @if(Session::has('cart'))
           <div class="cart">
-            <div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (@if(Session::has('cart'))
-              {{Session('cart')->totalQty}} @else Trống @endif) <i class="fa fa-chevron-down"></i></div>
+            <div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng ( <span id="tongso"> @if(Session::has('cart'))
+              {{Session('cart')->totalQty}} </span> @else Trống @endif) <i class="fa fa-chevron-down"></i></div>
             <div class="beta-dropdown cart-body">
-
+              <div class="list-items">
               @foreach($product_cart as $prd)
               <div class="cart-item">
                 <div class="media">
                   <a class="pull-left" href="#"><img src="source/image/product/{{$prd['item']['image']}}" alt="" width="30px" height="30px"></a>
                   <div class="media-body">
                     <span class="cart-item-title">{{$prd['item']['name']}}</span>
-                    <span class="cart-item-amount">{{$prd['qty']}}*<span>{{$prd['item']['unit_price']}}</span></span>
+                    <span class="cart-item-amount">{{$prd['qty']}} * <span>{{number_format($prd['item']['unit_price'])}}</span></span>
                   </div>
                 </div>
               </div>
               @endforeach
+              </div>
 
               <div class="cart-caption">
-                <div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{Session('cart')->totalPrice}}</span></div>
+                <div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{number_format(Session('cart')->totalPrice)}} VND</span></div>
                 <div class="clearfix"></div>
 
                 <div class="center">
