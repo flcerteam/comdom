@@ -17,6 +17,7 @@
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
 </head>
 <body>
+	<div></div>
 
 	@include('header')
 	<div class="rev-slider">
