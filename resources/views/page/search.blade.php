@@ -27,14 +27,14 @@
         </div>
         <div class="col-sm-9">
           <div class="beta-products-list">
-            <h4>New Products</h4>
+            <h4>Search Result</h4>
             <div class="beta-products-details">
-              <p class="pull-left">{{count($sp_theo_loai)}} sản phẩm</p>
+              <p class="pull-left">{{count($sp_theo_ten)}} sản phẩm</p>
               <div class="clearfix"></div>
             </div>
 
             <div class="row">
-              @foreach($sp_theo_loai as $sptl)
+              @foreach($sp_theo_ten as $sptl)
               <div class="col-sm-4">
                 <div class="single-item">
                   <div class="single-item-header">
@@ -57,48 +57,10 @@
               </div>
               @endforeach
             </div>
-          </div> <!-- .beta-products-list -->
-
-          <div class="space50">&nbsp;</div>
-
-          <div class="beta-products-list">
-            <h4>ANOTHER PRODUCTS</h4>
-            <div class="beta-products-details">
-              <p class="pull-left">{{count($sp_khac)}} sản phẩm</p>
-              <div class="clearfix"></div>
-            </div>
-            <div class="row">
-              @foreach($sp_khac as $ano)
-              <div class="col-sm-4">
-                <div class="single-item">
-                  <div class="single-item-header">
-                    <a href="product.html"><img src="source/image/product/{{$ano->image}}" alt="" height="250px"></a>
-                  </div>
-                  <div class="single-item-body">
-                    <p class="single-item-title">{{$ano->name}}</p>
-                    <p class="single-item-price">
-                      <span>{{number_format($ano->unit_price)}} VND</span>
-                    </p>
-                  </div>
-                  <div class="single-item-caption">
-                    <a class="add-to-cart pull-left sp1" href="">
-                      <input type="hidden" value="{{$ano->id}}" name="product_id"/>
-                      <i class="fa fa-shopping-cart"></i></a>
-                    <a class="beta-btn primary" href="{{route('product-detail',$ano->id)}}">Details <i class="fa fa-chevron-right"></i></a>
-                    <div class="clearfix"></div>
-                  </div>
-                </div>
-              </div>
-              @endforeach
-            </div>
-            <div class="row">{{$sp_khac->links()}}</div>
-            <div class="space40">&nbsp;</div>
-
+            <div class="row">{{$sp_theo_ten->appends(request()->input())->links()}}</div>
           </div> <!-- .beta-products-list -->
         </div>
       </div> <!-- end section with sidebar and main content -->
-
-
     </div> <!-- .main-content -->
   </div> <!-- #content -->
 </div> <!-- .container -->

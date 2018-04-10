@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 use App\TypeProduct;
 use App\Cart;
 use Session;
-
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -22,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
         $view->with('loai_sp',$loai_sp);
       });
 
-      view()->composer('header',function($view){
+      view()->composer('*',function($view){
         if(Session('cart')){
           // get gio hang gawn vao gio hang
           $oldCart=Session::get('cart');

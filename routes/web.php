@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[
+  'as'=>'trang-chu',
+  'uses'=>'PageController@getIndex'
+]);
 // Route::get('/login','UserController@login');
 Route::get('index',[
   'as'=>'trang-chu',
@@ -40,9 +41,18 @@ Route::get('gioi-thieu',[
 //   'uses'=>'PageController@getAddToCart'
 // ]);
 Route::post('add-to-cart','PageController@getAddToCart');
-Route::post('dmmm','PageController@google');
 //Route::get('add-to-cart','PageController@getGioHang');
 Route::get('del-cache',function(){
   Session::flush();
   echo 'dm dai ca';
 });
+Route::get('dang-nhap',[
+  'as'=>'login',
+  'uses'=>'PageController@getLogin'
+]);
+Route::get('/search','PageController@getSearchItem')->name('search');
+Route::get('/find', 'PageController@searchItem');
+Route::get('dat-hang',[
+  'as'=>'checkout',
+  'uses'=>'PageController@getCheckOut'
+]);

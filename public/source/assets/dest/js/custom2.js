@@ -1,10 +1,10 @@
 /* <![CDATA[ */
-            jQuery(document).ready(function($) {
-                'use strict';
+jQuery(document).ready(function($) {
+      'use strict';
+      var name=[];
 			$(function() {
         // this will get the full URL at the address bar
         var url = window.location.href;
-
         // passes on every "a" tag
         $(".main-menu a").each(function() {
             // checks if its the same on the address bar
@@ -14,60 +14,94 @@
             }
         });
     });
-  $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('value')
-          }
-  });
-  $("body").on("click", ".sp1", (function(e){
-      e.preventDefault();
-      $.ajax({
-        type: "POST",
-        url: "/add-to-cart",
-        data: {'id':e.currentTarget.childNodes[1].value},
-        success: function(data){
-              console.log(data);
-              //return false;
-              $('#tongso').html(data.cart["totalQty"]);
-              $('.list-items').html('');
-              $.each(data.cart["items"],function( key, value ){
-                $('.list-items').append('\
-                <div class="cart-item">\
-                  <div class="media">\
-                    <a class="pull-left" href="#"><img src="source/image/product/'+value.item["image"]+'" alt="" width="30px" height="30px"></a>\
-                    <div class="media-body">\
-                      <span class="cart-item-title">'+value.item["name"]+'</span>\
-                      <span class="cart-item-amount">'+value.qty+' * <span>'+value.item["unit_price"]+'</span></span>\
+    $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('value')
+            }
+    });
+    /**
+    *click vào icon thêm giỏ hàng
+    **/
+    $("body").on("click", ".sp1", (function(e){
+        e.preventDefault();
+        $.ajax({
+          type: "POST",
+          url: "/add-to-cart",
+          data: {'id':e.currentTarget.childNodes[1].value},
+          success: function(data){
+                console.log(data);
+                //return false;
+                $('#tongso').text(data.cart["totalQty"]);
+                $('.list-items').html('');
+                $.each(data.cart["items"],function( key, value ){
+                  $('.list-items').append('\
+                  <div class="cart-item">\
+                    <div class="media">\
+                      <a class="pull-left" href="#"><img src="source/image/product/'+value.item["image"]+'" alt="" width="30px" height="30px"></a>\
+                      <div class="media-body">\
+                        <span class="cart-item-title">'+value.item["name"]+'</span>\
+                        <span class="cart-item-amount">'+value.qty+' * <span>'+value.item["unit_price"]+'</span></span>\
+                      </div>\
                     </div>\
-                  </div>\
-                </div>')
-              })
-              $('.cart-total-value').html(data.cart["totalPrice"]);
-              console.log(data.cart["totalPrice"]);
+                  </div>')
+                })
+                $('.cart-total-value').text(data.cart["totalPrice"]);
+                console.log(data.cart["totalPrice"]);
 
-        },
-        error:function(data){
-          console.log(data);
-        }
-      });
-    }));
-
-
-			// NUMBERS COUNTER START
-                $('.numbers').data('countToOptions', {
-                    formatter: function(value, options) {
-                        return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+          },
+          error:function(data){
+            console.log(data);
+          }
+        });
+      }));
+      $(document).ready(function() {
+            var bloodhound = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/find?q=%QUERY%',
+                    wildcard: '%QUERY%'
+                },
+              });
+              $('#s').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+                },
+                {
+                name: 'users',
+                source: bloodhound,
+                display: function(data) {
+                    return data.name  //Input value to be set when you select a suggestion.
+                },
+                templates: {
+                    empty: [
+                        '<div class="list-group search-results-dropdown"><div class="list-group-item">Nothing found.</div></div>'
+                    ],
+                    header: [
+                        '<div class="list-group search-results-dropdown">'
+                    ],
+                    suggestion: function(data) {
+                    return '<div style="font-weight:normal; margin-top:-10px ! important;" class="list-group-item">' + data.name + '</div></div>'
                     }
-                });
+                }
+            });
+        });
+			// NUMBERS COUNTER START
+        $('.numbers').data('countToOptions', {
+            formatter: function(value, options) {
+                return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+            }
+        });
 
-                // start timer
-                $('.timer').each(count);
+        // start timer
+        $('.timer').each(count);
 
-                function count(options) {
-                    var $this = $(this);
-                    options = $.extend({}, options || {}, $this.data('countToOptions') || {});
-                    $this.countTo(options);
-                } // NUMBERS COUNTER END
+        function count(options) {
+            var $this = $(this);
+            options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+            $this.countTo(options);
+        } // NUMBERS COUNTER END
 
 
 				var tpj=jQuery;

@@ -1,9 +1,6 @@
 @extends('master')
 @section('content')
       <!--slider-->
-<script>
-
-</script>
 <div class="container">
   <div id="content" class="space-top-none">
     <div class="main-content">
@@ -25,7 +22,7 @@
                   <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                   @endif
                   <div class="single-item-header">
-                    <a href="product.html"><img src="source/image/product/{{$new->image}}" alt="" height="250px"></a>
+                    <a href="{{route('product-detail',$new->id)}}"><img src="source/image/product/{{$new->image}}" class="img-responsive" alt="" height="250px"></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">{{$new->name}}</p>
@@ -65,7 +62,7 @@
                   <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 
                   <div class="single-item-header">
-                    <a href="product.html"><img src="source/image/product/{{$sp->image}}" alt="" height="250px"></a>
+                    <a href="{{route('product-detail',$sp->id)}}"><img src="source/image/product/{{$sp->image}}" class="img-responsive" alt="" height="250px"></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">{{$sp->name}}</p>

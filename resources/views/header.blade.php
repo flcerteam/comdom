@@ -11,7 +11,7 @@
         <ul class="top-details menu-beta l-inline">
           <li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
           <li><a href="#">Đăng kí</a></li>
-          <li><a href="#">Đăng nhập</a></li>
+          <li><a href="{{route('login')}}">Đăng nhập</a></li>
         </ul>
       </div>
       <div class="clearfix"></div>
@@ -20,13 +20,13 @@
   <div class="header-body">
     <div class="container beta-relative">
       <div class="pull-left">
-        <a href="index.html" id="logo"><img src="source/assets/dest/images/logo-cake.png" width="200px" alt=""></a>
+        <a href="{{route('trang-chu')}}" id="logo"><img src="source/assets/dest/images/logo-cake.png" width="200px" alt=""></a>
       </div>
       <div class="pull-right beta-components space-left ov">
         <div class="space10">&nbsp;</div>
         <div class="beta-comp">
-          <form role="search" method="get" id="searchform" action="/">
-                <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
+          <form role="search" method="get" id="searchform" action="search">
+                <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..."/>
                 <button class="fa fa-search" type="submit" id="searchsubmit"></button>
           </form>
         </div>
@@ -57,7 +57,7 @@
 
                 <div class="center">
                   <div class="space10">&nbsp;</div>
-                  <a href="checkout.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
+                  <a href="{{route('checkout')}}" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
                 </div>
               </div>
             </div>
@@ -72,11 +72,11 @@
     <div class="container">
       <a class="visible-xs beta-menu-toggle pull-right" href="#"><span class='beta-menu-toggle-text'>Menu</span> <i class="fa fa-bars"></i></a>
       <div class="visible-xs clearfix"></div>
-      <nav class="main-menu">
+      <nav class="main-menu ">
         <ul class="l-inline ov">
           <li><a href="{{ route('trang-chu') }}">Trang chủ</a></li>
-          <li><a href="#">Loại Sản phẩm</a>
-            <ul class="sub-menu">
+          <li><a class="dropdown-toggle" data-toggle="dropdown" >Loại Sản phẩm <span class="caret"></span></a>
+            <ul class="dropdown-menu ">
               @foreach($loai_sp as $sp)
               <li><a href="{{route('product-type',$sp->id)}}">{{$sp->name}}</a></li>
             @endforeach
@@ -84,9 +84,41 @@
           </li>
           <li><a href="{{ route('about') }}">Giới thiệu</a></li>
           <li><a href="{{ route('contact') }}">Liên hệ</a></li>
-        </ul>
+       </ul>
         <div class="clearfix"></div>
       </nav>
     </div> <!-- .container -->
+      {{-- <div class="container">
+        <nav class="navbar navbar-default"  >
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div id="navbar1" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="{{ route('trang-chu') }}">Trang chủ</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Loại Sản Phẩm <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    @foreach($loai_sp as $sp)
+                    <li><a href="{{route('product-type',$sp->id)}}">{{$sp->name}}</a></li>
+                    <li class="divider"></li>
+                  @endforeach
+                  </ul>
+                </li>
+                <li><a href="{{ route('about') }}">Giới thiệu</a></li>
+                <li><a href="{{ route('contact') }}">Liên hệ</a></li>
+              </ul>
+            </div>
+            <!--/.nav-collapse -->
+          </div>
+          <!--/.container-fluid -->
+        </nav>
+      </div> --}}
   </div> <!-- .header-bottom -->
 </div> <!-- #header -->
