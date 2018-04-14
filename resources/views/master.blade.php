@@ -40,8 +40,10 @@
 	<script src="source/assets/dest/js/waypoints.min.js"></script>
 	<script src="source/assets/dest/js/wow.min.js"></script>
 	<script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.3.7/jquery.jscroll.js"></script>
 	<!--customjs-->
 	<script src="source/assets/dest/js/custom2.js"></script>
+	<script src="source/assets/dest/js/jscroll-paging.js"></script>
 	<script>
 	$(document).ready(function($) {
 		$(window).scroll(function(){
