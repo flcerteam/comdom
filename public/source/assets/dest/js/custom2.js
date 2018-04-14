@@ -29,6 +29,7 @@ jQuery(document).ready(function($) {
           url: "/add-to-cart",
           data: {'id':e.currentTarget.childNodes[1].value},
           success: function(data){
+              alert("Bạn đã thêm thành công 1 sản phẩm");
                 console.log(data);
                 //return false;
                 $('#tongso').text(data.cart["totalQty"]);

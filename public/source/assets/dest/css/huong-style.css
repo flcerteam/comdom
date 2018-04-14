@@ -27,3 +27,13 @@ ul.navbar-nav> li> a{
     color: #000;
     background: #f4a442;
 }
+.navbar-default .navbar-nav >.dropdown>.dropdown-menu> .active{
+    color: #000;
+    background: #f4a442;
+}
+.navbar-default .navbar-nav >.dropdown>.dropdown-menu> .active > a,
+.navbar-default .navbar-nav >.dropdown>.dropdown-menu> .active > a:hover,
+.navbar-default .navbar-nav >.dropdown>.dropdown-menu> .active > a:focus {
+    color: #000;
+    background: #f4a442;
+}

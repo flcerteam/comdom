@@ -12,7 +12,7 @@ class PageController extends Controller
     public function getIndex(){
       $slide = Slide::all();
       // lấy sp trong table product có column new =1
-      $new_product = Product::where('new',1)->paginate(4);
+      $new_product = Product::paginate(4);
       $sp_khuyen_mai = Product::where('promotion_price','<>',0)->paginate(8);
       $san_pham = Product::all();
       // print_r($slide);

@@ -68,6 +68,23 @@
               </div>
             </div>
           </div> <!-- .cart -->
+        @else
+          <div class="cart">
+            <div class="beta-select"><i class="fa fa-shopping-cart"></i> <a style="color:#fff">Giỏ hàng (<span id="tongso">0</span>) </a><i class="fa fa-chevron-down"></i></div>
+            <div class="beta-dropdown cart-body">
+              <div class="list-items">
+              </div>
+              <div class="cart-caption">
+                <div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">0 VND</span></div>
+                <div class="clearfix"></div>
+
+                <div class="center">
+                  <div class="space10">&nbsp;</div>
+                  <a href="{{route('checkout')}}" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         @endif
       </div>
