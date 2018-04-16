@@ -16,6 +16,7 @@
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/style.css">
 	<link rel="stylesheet" href="source/assets/dest/css/animate.css">
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
+	<link rel="stylesheet" title="style" href="source/assets/dest/css/body_scroll.css">
 </head>
 <body>
 	<div></div>
@@ -44,15 +45,18 @@
 	<!--customjs-->
 	<script src="source/assets/dest/js/custom2.js"></script>
 	<script src="source/assets/dest/js/jscroll-paging.js"></script>
+	<script src="source/assets/dest/js/cart.js"></script>
+	<script src="source/assets/dest/js/autoSearch.js"></script>
+	<script src="source/assets/dest/js/autoFill.js"></script>
 	<script>
 	$(document).ready(function($) {
 		$(window).scroll(function(){
-			if($(this).scrollTop()>150){
+			if($(this).scrollTop()>250){
 			$(".header-bottom").addClass('fixNav')
-			}else{
+		}else {
 				$(".header-bottom").removeClass('fixNav')
-			}}
-		)
+			}
+		})
 	})
 	</script>
 </body>

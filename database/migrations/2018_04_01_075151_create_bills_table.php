@@ -20,8 +20,6 @@ class CreateBillsTable extends Migration
             $table->double('total');
             $table->string('payment');
             $table->string('note');
-            $table->string('create_user');
-            $table->string('update_user');
             $table->timestamps();
         });
     }

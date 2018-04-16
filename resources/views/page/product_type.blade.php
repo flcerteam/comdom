@@ -68,6 +68,7 @@
               <div class="clearfix"></div>
             </div>
             <div class="row">
+              <div class="infinite-scroll">
               @foreach($sp_khac as $ano)
               <div class="col-sm-4">
                 <div class="single-item">
@@ -90,8 +91,9 @@
                 </div>
               </div>
               @endforeach
+              {{ $sp_khac->links() }}
             </div>
-            <div class="row">{{$sp_khac->links()}}</div>
+            </div
             <div class="space40">&nbsp;</div>
 
           </div> <!-- .beta-products-list -->

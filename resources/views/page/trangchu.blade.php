@@ -6,22 +6,34 @@
     <div class="main-content">
       <div class="space60">&nbsp;</div>
       <div class="row">
-        <div class="col-sm-12">
-          <div class="beta-products-list">
-            <h4><strong>SẢN PHẨM<strong></h4>
+        <div class="col-sm-3 hidden-xs">
+          <div class="container-fluid">
+            <ul class="aside-menu">
+              <h4><strong>Danh Mục<strong></h4>
+              @foreach($loai_sp as $loai)
+              <li><a href="#{{$loai->id}}">{{$loai->name}}</a></li>
+              @endforeach
+              <li role="separator" class="divider"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-9">
+          @foreach($loai_sp as $loai)
+          <div class="beta-products-list" id="{{$loai->id}}">
+            <h4><strong>{{$loai->name}}<strong></h4>
             <div class="beta-products-details">
               <p class="pull-left">Tìm thấy {{$product_count}} sản phẩm</p>
               <div class="clearfix"></div>
             </div>
             <div class="row infinite-scroll">
               @foreach($new_product as $new)
-              <div class="col-sm-3">
+              <div class="col-sm-4">
                 <div class="single-item">
                   @if($new->promotion_price != 0)
                   <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                   @endif
                   <div class="single-item-header">
-                    <a href="{{route('product-detail',$new->id)}}"><img class="img-thumbnail" src="source/image/product/{{$new->image}}" alt="" height="200px"></a>
+                    <a href="{{route('product-detail',$new->id)}}"><img  src="source/image/product/{{$new->image}}" alt="" height="200px"></a>
                   </div>
                   <div class="single-item-body">
                     <p class="single-item-title">{{$new->name}}</p>
@@ -43,10 +55,13 @@
                   </div>
                 </div>
               </div>
-            <div class="space40"></div>
-            @endforeach
-            {{$new_product->links()}}
-        </div>
+              <div class="space40"></div>
+              @endforeach
+              </div>
+            </div>
+            <div class="space50">&nbsp;</div>
+          @endforeach
+          </div>
       </div> <!-- end section with sidebar and main content -->
     </div> <!-- .main-content -->
   </div> <!-- #content -->

@@ -19,8 +19,6 @@ class CreateBillDetailsTable extends Migration
             $table->string('id_product');
             $table->integer('quantity');
             $table->double('unit_price');
-            $table->string('create_user');
-            $table->string('update_user');
             $table->timestamps();
         });
     }
