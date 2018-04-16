@@ -37,3 +37,16 @@ ul.navbar-nav> li> a{
     color: #000;
     background: #f4a442;
 }
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+.header-bottom {
+    border-top: none !important;
+  border-bottom:none !important;
+}

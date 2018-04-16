@@ -41,6 +41,7 @@ Route::get('gioi-thieu',[
 //   'uses'=>'PageController@getAddToCart'
 // ]);
 Route::post('add-to-cart','PageController@getAddToCart');
+Route::post('get_customer_info','CheckOutController@getCustomerInfo');
 //Route::get('add-to-cart','PageController@getGioHang');
 Route::get('del-cache',function(){
   Session::flush();
@@ -55,4 +56,12 @@ Route::get('/find', 'PageController@searchItem');
 Route::get('dat-hang',[
   'as'=>'checkout',
   'uses'=>'PageController@getCheckOut'
+]);
+Route::get('del-cart/{id}',[
+	'as'=>'xoagiohang',
+	'uses'=>'PageController@getDelItemCart'
+]);
+Route::post('dat-hang',[
+	'as'=>'checkout',
+	'uses'=>'CheckOutController@postCheckout'
 ]);

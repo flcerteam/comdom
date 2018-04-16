@@ -12,7 +12,7 @@ class PageController extends Controller
     public function getIndex(){
       // lấy sp trong table product có column new =1
       $product_count = count(Product::all());
-      $new_product = Product::paginate(4);
+      $new_product = Product::all();
       $sp_khuyen_mai = Product::where('promotion_price','<>',0)->paginate(8);
       return view('page.trangchu',compact('product_count','new_product','sp_khuyen_mai','san_pham'));
     }
@@ -38,7 +38,6 @@ class PageController extends Controller
         $oldCart = Session('cart')?Session::get('cart'):null;
         $cart = new Cart($oldCart);
         $cart->add($product,$input['id']);
-        //dd($cart);
         Session::put('cart',$cart);
         return response()->json(['cart'=>$cart]);
     }
@@ -60,4 +59,16 @@ class PageController extends Controller
     public function getCheckOut(){
       return view('page.checkout');
     }
+    public function getDelItemCart($id){
+       $oldCart = Session::has('cart')?Session::get('cart'):null;
+       $cart = new Cart($oldCart);
+       $cart->removeItem($id);
+       if(count($cart->items)>0){
+           Session::put('cart',$cart);
+       }
+       else{
+           Session::forget('cart');
+       }
+       return redirect()->back();
+   }
 }
