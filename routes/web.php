@@ -65,3 +65,9 @@ Route::post('dat-hang',[
 	'as'=>'checkout',
 	'uses'=>'CheckOutController@postCheckout'
 ]);
+
+Auth::routes();
+
+Route::get('/admin', 'HomeController@index')->name('home');
+
+Route::get('admin/user', 'UserController@index');
