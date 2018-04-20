@@ -66,6 +66,7 @@ Route::post('dat-hang',[
 	'uses'=>'CheckOutController@postCheckout'
 ]);
 
+<<<<<<< HEAD
 Route::get('location',[
 	'as'=>'location',
 	'uses'=>'LocationsController@getInfo'
@@ -75,3 +76,10 @@ Route::get('dtl-location',[
 	'as'=>'dtl-location',
 	'uses'=>'LocationDetailsController@getInfo'
 ]);
+=======
+Auth::routes();
+
+Route::get('/admin', 'HomeController@index')->name('home');
+
+Route::get('admin/user', 'UserController@index');
+>>>>>>> 8abd58c51bcd055027a0c8f82401b6ef151c9199
