@@ -37,6 +37,7 @@
               <li><a href="#">Siêu Thị Yaki</a></li>
               <li><a href="#">Tin Tức Yaki</a></li>
               <li><a href="{{route('contact')}}">Liên Hệ</a></li>
+              <li><a href="{{route('location')}}">Locations</a></li>
               <li><a href="#"><span class="alert alert-danger">Đặt Bàn</span></a></li>
             </ul>
             <div class="beta-comp navbar-form navbar-left">

@@ -17,6 +17,30 @@
 	<link rel="stylesheet" href="source/assets/dest/css/animate.css">
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/body_scroll.css">
+	{{-- LOCATION --}}
+	<link rel="stylesheet" href="source/assets/dest/css/location/ajax-progress.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/align.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/autocomplete-loading.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/fieldgroup.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/container-inline.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/clearfix.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/details.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/hidden.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/item-list.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/js.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/nowrap.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/position-container.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/progress.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/reset-appearance.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/resize.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/sticky-header.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/tabledrag.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/tablesort.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/tree-child.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/views.module.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/cafe.style.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/node.css" media="all">
+	<link rel="stylesheet" href="source/assets/dest/css/location/custom.style.css" media="all">
 </head>
 <body>
 	<div></div>

@@ -65,3 +65,13 @@ Route::post('dat-hang',[
 	'as'=>'checkout',
 	'uses'=>'CheckOutController@postCheckout'
 ]);
+
+Route::get('location',[
+	'as'=>'location',
+	'uses'=>'LocationsController@getInfo'
+]);
+
+Route::get('dtl-location',[
+	'as'=>'dtl-location',
+	'uses'=>'LocationDetailsController@getInfo'
+]);
